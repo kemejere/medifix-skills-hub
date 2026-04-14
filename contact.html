@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – Medifix Skills Hub Limited</title>
+  <meta name="description" content="Get in touch with Medifix Skills Hub Limited. Contact us for training enrollment, equipment inquiries, consultancy, or technical support. Located at Lifestyle Shopping Mall, Ruiru, Kiambu County." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── Contact Page Specific Styles ── */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 36px; }
+    }
+
+    /* Contact Info Panel */
+    .contact-info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .contact-info-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      transition: var(--transition);
+    }
+    .contact-info-card:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .contact-info-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .contact-info-icon.green { background: #e6f7f5; color: var(--secondary); }
+    .contact-info-icon.amber { background: #fef6e8; color: var(--accent); }
+    .contact-info-details { flex: 1; }
+    .contact-info-details h4 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      margin: 0 0 6px;
+    }
+    .contact-info-details a,
+    .contact-info-details p {
+      font-size: 0.96rem;
+      color: var(--text);
+      font-weight: 500;
+      margin: 0;
+      line-height: 1.6;
+      text-decoration: none;
+      display: block;
+    }
+    .contact-info-details a:hover { color: var(--primary); }
+
+    /* Contact Form Card */
+    .contact-form-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 36px;
+      box-shadow: var(--shadow);
+    }
+    @media (max-width: 540px) {
+      .contact-form-card { padding: 28px 20px; }
+    }
+    .contact-form-card h3 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin: 0 0 6px;
+    }
+    .contact-form-card > p {
+      color: var(--text-light);
+      font-size: 0.94rem;
+      margin: 0 0 28px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 540px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--heading);
+    }
+    .form-group label .required-star {
+      color: #e74c3c;
+      margin-left: 2px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--text);
+      background: #fafbfc;
+      transition: var(--transition);
+      outline: none;
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(10,110,180,0.08);
+    }
+    .form-group input.field-error,
+    .form-group select.field-error,
+    .form-group textarea.field-error {
+      border-color: #e74c3c;
+      background: #fff8f8;
+    }
+    .form-group input.field-error:focus,
+    .form-group select.field-error:focus,
+    .form-group textarea.field-error:focus {
+      box-shadow: 0 0 0 3px rgba(231,76,60,0.1);
+    }
+    .field-msg {
+      font-size: 0.8rem;
+      min-height: 18px;
+      display: block;
+    }
+    .field-msg.error { color: #e74c3c; }
+    .field-msg.success { color: #00b09b; }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select { cursor: pointer; appearance: auto; }
+
+    /* Consent checkbox */
+    .consent-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .consent-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+    .consent-group label {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.5;
+      cursor: pointer;
+    }
+    .consent-group label a {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    .consent-error {
+      color: #e74c3c;
+      font-size: 0.8rem;
+      margin: -14px 0 14px;
+      display: none;
+    }
+    .consent-error.visible { display: block; }
+
+    /* Submit button */
+    .btn-submit {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      position: relative;
+    }
+    .btn-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    /* Form success state */
+    .form-success-msg {
+      display: none;
+      background: #e6f7f5;
+      border: 1.5px solid #00b09b;
+      border-radius: 10px;
+      padding: 20px 24px;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .form-success-msg.visible { display: block; }
+    .form-success-msg .success-icon { font-size: 2.4rem; margin-bottom: 10px; }
+    .form-success-msg h4 { color: #00897b; font-size: 1.1rem; margin: 0 0 6px; }
+    .form-success-msg p { color: var(--text-light); font-size: 0.92rem; margin: 0; }
+
+    /* Working Hours */
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .hours-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .hours-card:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    .hours-icon { font-size: 2rem; margin-bottom: 12px; }
+    .hours-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin: 0 0 6px;
+    }
+    .hours-card .time {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0 0 4px;
+    }
+    .hours-card .note {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+    .hours-card.closed .time { color: #e74c3c; }
+
+    /* FAQ Accordion */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-item.open {
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      text-align: left;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--heading);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: var(--transition);
+    }
+    .faq-question:hover { color: var(--primary); }
+    .faq-item.open .faq-question { color: var(--primary); }
+    .faq-chevron {
+      font-size: 1.1rem;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      color: var(--primary);
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.2s ease;
+    }
+    .faq-answer-inner {
+      padding: 0 24px 22px;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+    .faq-item.open .faq-answer { max-height: 400px; }
+
+    /* Map embed placeholder */
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      background: #e8f0f7;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      color: var(--text-light);
+      font-size: 0.94rem;
+      text-align: center;
+      padding: 32px;
+    }
+    .map-wrap .map-pin { font-size: 2.8rem; }
+    .map-wrap strong { color: var(--heading); font-size: 1rem; }
+
+    /* Response time badge */
+    .response-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #e6f7f5;
+      color: #00897b;
+      border: 1px solid #b2dfdb;
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .response-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: #00b09b;
+      border-radius: 50%;
+      animation: pulse-dot 1.8s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.75); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">M</div>
+        Medifix Skills Hub
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="training.html">Training</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li class="nav-cta"><a href="contact.html" class="btn btn-primary">Get Started</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span><span>Contact Us</span>
+      </div>
+      <h1>Contact Us</h1>
+      <p>Have a question, want to enroll in a training program, or need a custom solution? Our team is ready to help. Reach out and we'll respond promptly.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT MAIN -->
+  <section class="section-pad">
+    <div class="container">
+
+      <div class="contact-layout">
+
+        <!-- LEFT: Contact Info -->
+        <div class="contact-info-panel">
+
+          <div>
+            <span class="eyebrow-tag">Get In Touch</span>
+            <h2 style="margin:10px 0 8px;">We'd Love to Hear From You</h2>
+            <p style="color:var(--text-light);font-size:0.95rem;margin:0 0 24px;line-height:1.7;">Whether you're enrolling in a course, sourcing medical equipment, or exploring consultancy services, our team is here Monday through Saturday to assist you.</p>
+            <div class="response-badge">
+              <span class="dot"></span>
+              Typically responds within 2–4 hours
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="contact-info-card">
+            <div class="contact-info-icon">&#128222;</div>
+            <div class="contact-info-details">
+              <h4>Phone Numbers</h4>
+              <a href="tel:0725385688">0725 385 688</a>
+              <a href="tel:0743146118">0743 146 118</a>
+              <a href="tel:0704780931">0704 780 931</a>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="contact-info-card">
+            <div class="contact-info-icon green">&#9993;</div>
+            <div class="contact-info-details">
+              <h4>Email Address</h4>
+              <a href="mailto:medifixskillshub@gmail.com">medifixskillshub@gmail.com</a>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="contact-info-card">
+            <div class="contact-info-icon amber">&#128205;</div>
+            <div class="contact-info-details">
+              <h4>Our Location</h4>
+              <p>Lifestyle Shopping Mall</p>
+              <p>Ruiru, Kiambu County</p>
+            </div>
+          </div>
+
+          <!-- Map placeholder -->
+          <div class="map-wrap">
+            <span class="map-pin">&#128205;</span>
+            <strong>Lifestyle Shopping Mall, Ruiru</strong>
+            <p style="margin:0;">Kiambu County, Kenya</p>
+            <a href="https://maps.google.com/?q=Lifestyle+Shopping+Mall+Ruiru+Kiambu" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:12px;font-size:0.88rem;padding:9px 22px;">Open in Google Maps</a>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Contact Form -->
+        <div class="contact-form-card">
+          <h3>Send Us a Message</h3>
+          <p>Fill in the form below and a member of our team will get back to you as soon as possible.</p>
+
+          <form id="contactForm" novalidate>
+
+            <div class="form-row">
+              <!-- Name -->
+              <div class="form-group">
+                <label for="fullName">Full Name <span class="required-star">*</span></label>
+                <input type="text" id="fullName" name="fullName" placeholder="e.g. Jane Mwangi" autocomplete="name" />
+                <span class="field-msg" id="fullNameMsg"></span>
+              </div>
+              <!-- Email -->
+              <div class="form-group">
+                <label for="emailAddr">Email Address <span class="required-star">*</span></label>
+                <input type="email" id="emailAddr" name="emailAddr" placeholder="you@example.com" autocomplete="email" />
+                <span class="field-msg" id="emailAddrMsg"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <!-- Phone -->
+              <div class="form-group">
+                <label for="phoneNum">Phone Number</label>
+                <input type="tel" id="phoneNum" name="phoneNum" placeholder="07XX XXX XXX" autocomplete="tel" />
+                <span class="field-msg" id="phoneNumMsg"></span>
+              </div>
+              <!-- Department -->
+              <div class="form-group">
+                <label for="department">Department <span class="required-star">*</span></label>
+                <select id="department" name="department">
+                  <option value="">-- Select a department --</option>
+                  <option value="equipment-sales">Equipment Sales</option>
+                  <option value="training">Training</option>
+                  <option value="technical-support">Technical Support</option>
+                  <option value="general">General Inquiry</option>
+                </select>
+                <span class="field-msg" id="departmentMsg"></span>
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group">
+              <label for="message">Message <span class="required-star">*</span></label>
+              <textarea id="message" name="message" placeholder="Tell us how we can help you. Include any relevant details such as preferred training dates, course of interest, or equipment needed."></textarea>
+              <span class="field-msg" id="messageMsg"></span>
+            </div>
+
+            <!-- Privacy Consent -->
+            <div class="consent-group">
+              <input type="checkbox" id="privacyConsent" name="privacyConsent" />
+              <label for="privacyConsent">
+                I agree that Medifix Skills Hub Limited may use the information I have provided to respond to my inquiry. I understand my data will be handled in accordance with applicable privacy regulations and will not be shared with third parties without my consent.
+              </label>
+            </div>
+            <div class="consent-error" id="consentError">Please accept the privacy consent to proceed.</div>
+
+            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+              &#9993;&nbsp; Send Message
+            </button>
+
+          </form>
+
+          <!-- Success message (shown after submission) -->
+          <div class="form-success-msg" id="formSuccess">
+            <div class="success-icon">&#10003;</div>
+            <h4>Message Sent Successfully!</h4>
+            <p>Thank you for reaching out. A member of our team will respond to your message within 2–4 business hours.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKING HOURS -->
+  <section class="section-pad bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Availability</span>
+        <h2>Working Hours</h2>
+        <p>Our team is available during the following hours to assist you with inquiries, enrollment, and support.</p>
+      </div>
+      <div class="hours-grid">
+        <div class="hours-card">
+          <div class="hours-icon">&#128197;</div>
+          <h4>Monday – Friday</h4>
+          <p class="time">8:00 AM – 6:00 PM</p>
+          <p class="note">Full services available. Training, sales, and consultancy teams on-site.</p>
+        </div>
+        <div class="hours-card">
+          <div class="hours-icon">&#127960;</div>
+          <h4>Saturday</h4>
+          <p class="time">9:00 AM – 4:00 PM</p>
+          <p class="note">Training sessions and equipment inquiries. Limited consultancy availability.</p>
+        </div>
+        <div class="hours-card closed">
+          <div class="hours-icon">&#128683;</div>
+          <h4>Sunday &amp; Public Holidays</h4>
+          <p class="time">Closed</p>
+          <p class="note">We're closed, but you can still send us a message and we'll respond on the next business day.</p>
+        </div>
+        <div class="hours-card">
+          <div class="hours-icon">&#9889;</div>
+          <h4>Emergency Support</h4>
+          <p class="time">24 / 7</p>
+          <p class="note">For urgent technical support or equipment issues, call our emergency line: 0725 385 688.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ ACCORDION -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">FAQs</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to the questions we hear most often. Can't find what you need? Send us a message above.</p>
+      </div>
+
+      <div class="faq-list" id="faqList">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How do I enroll in a training program?
+            <span class="faq-chevron">&#8964;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Enrolling is straightforward. Simply fill out the contact form on this page, selecting "Training" as your department, and mention the specific course you're interested in. Alternatively, call or email us directly. Our training team will confirm upcoming schedule dates, course prerequisites, and guide you through the registration process. Group bookings of 10 or more participants qualify for special institutional rates.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            What medical equipment do you supply, and how do I place an order?
+            <span class="faq-chevron">&#8964;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Medifix Skills Hub supplies a wide range of medical and simulation equipment including defibrillators, patient simulators, diagnostic devices, surgical instruments, and ward consumables. To place an order or request a product catalogue, contact our Equipment Sales department via the form above, by phone, or by email. Our sales team will provide a tailored quotation and advise on availability and delivery timelines.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Are your training certifications recognised internationally?
+            <span class="faq-chevron">&#8964;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes. Our core life support programs — including BLS, ACLS, and PALS — are aligned with American Heart Association (AHA) and European Resuscitation Council (ERC) standards, making them internationally recognised and widely accepted by hospitals, clinics, and health authorities both locally and abroad. Our Infection Prevention &amp; Control and Neonatal Resuscitation programs follow WHO and AAP guidelines respectively. All certificates include participant details, issuing date, and validity period.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Can you deliver training on-site at our hospital or facility?
+            <span class="faq-chevron">&#8964;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Absolutely. On-site and in-facility training delivery is one of our most popular options. We bring our instructors, simulation equipment, and training materials directly to your location — minimising staff disruption and travel costs. On-site training is ideal for large hospital teams, NGOs, and corporate health departments. Contact us to discuss your requirements and we will design a custom delivery plan that fits your schedule and budget.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            How quickly will someone respond to my inquiry?
+            <span class="faq-chevron">&#8964;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              We aim to respond to all inquiries within 2–4 hours during business hours (Monday to Friday, 8:00 AM – 6:00 PM; Saturday 9:00 AM – 4:00 PM). Messages sent outside business hours will be responded to on the next working day. For urgent matters — particularly equipment technical support — you can call our emergency line at 0725 385 688, which is monitored around the clock.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Take the Next Step?</h2>
+      <p>Whether you need training, equipment, consultancy, or staffing solutions — Medifix Skills Hub is your trusted healthcare partner.</p>
+      <div class="cta-actions">
+        <a href="training.html" class="btn btn-outline btn-lg">Explore Training</a>
+        <a href="services.html" class="btn btn-secondary btn-lg">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <div class="footer-logo-icon">M</div>
+            Medifix Skills Hub
+          </a>
+          <p>Empowering healthcare excellence through world-class training, consultancy, and innovation across Kenya and East Africa.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">in</a>
+            <a href="#" class="social-link">fb</a>
+            <a href="#" class="social-link">tw</a>
+            <a href="#" class="social-link">yt</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="training.html">Training</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul class="footer-links">
+            <li><a href="training.html">BLS Certification</a></li>
+            <li><a href="training.html">ACLS Certification</a></li>
+            <li><a href="training.html">PALS Certification</a></li>
+            <li><a href="training.html">PHARSO</a></li>
+            <li><a href="training.html">IPC Training</a></li>
+            <li><a href="training.html">Custom Programs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item"><span>&#128205;</span><span>Lifestyle Shopping Mall, Ruiru, Kiambu County</span></div>
+          <div class="footer-contact-item"><span>&#128222;</span><span>0725 385 688 / 0743 146 118</span></div>
+          <div class="footer-contact-item"><span>&#9993;</span><span>medifixskillshub@gmail.com</span></div>
+          <div class="footer-contact-item"><span>&#128337;</span><span>Mon–Fri: 8:00 AM – 6:00 PM</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Medifix Skills Hub Limited. All rights reserved.</span>
+        <span>RC No. Registered &bull; CAC Certified</span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" style="position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:50%;background:var(--primary);color:white;border:none;font-size:1.2rem;cursor:pointer;opacity:0;transition:opacity 0.3s;box-shadow:var(--shadow);pointer-events:none;" aria-label="Back to top">&#8679;</button>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── Helpers ── */
+      function getEl(id) { return document.getElementById(id); }
+      function setMsg(id, text, type) {
+        var el = getEl(id);
+        if (!el) return;
+        el.textContent = text;
+        el.className = 'field-msg' + (type ? ' ' + type : '');
+      }
+      function setError(inputId, msgId, msg) {
+        var input = getEl(inputId);
+        if (input) { input.classList.add('field-error'); input.classList.remove('field-ok'); }
+        setMsg(msgId, msg, 'error');
+      }
+      function clearError(inputId, msgId) {
+        var input = getEl(inputId);
+        if (input) { input.classList.remove('field-error'); }
+        setMsg(msgId, '', '');
+      }
+      function isValidEmail(val) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
+      }
+      function isValidPhone(val) {
+        return val.trim() === '' || /^[\d\s\+\-\(\)]{7,15}$/.test(val.trim());
+      }
+
+      /* ── Live field validation ── */
+      var fields = [
+        { id: 'fullName',   msg: 'fullNameMsg',   validate: function(v){ return v.trim().length >= 2 ? '' : 'Please enter your full name (at least 2 characters).'; } },
+        { id: 'emailAddr',  msg: 'emailAddrMsg',  validate: function(v){ return isValidEmail(v) ? '' : 'Please enter a valid email address.'; } },
+        { id: 'phoneNum',   msg: 'phoneNumMsg',   validate: function(v){ return isValidPhone(v) ? '' : 'Please enter a valid phone number.'; } },
+        { id: 'department', msg: 'departmentMsg', validate: function(v){ return v ? '' : 'Please select a department.'; } },
+        { id: 'message',    msg: 'messageMsg',    validate: function(v){ return v.trim().length >= 10 ? '' : 'Please enter a message (at least 10 characters).'; } }
+      ];
+
+      fields.forEach(function(f) {
+        var el = getEl(f.id);
+        if (!el) return;
+        el.addEventListener('blur', function() {
+          var err = f.validate(el.value);
+          if (err) { setError(f.id, f.msg, err); }
+          else { clearError(f.id, f.msg); }
+        });
+        el.addEventListener('input', function() {
+          if (el.classList.contains('field-error')) {
+            var err = f.validate(el.value);
+            if (!err) { clearError(f.id, f.msg); }
+          }
+        });
+      });
+
+      /* ── Form submission ── */
+      var form      = getEl('contactForm');
+      var submitBtn = getEl('submitBtn');
+      var successEl = getEl('formSuccess');
+      var consentEl = getEl('privacyConsent');
+      var consentErr = getEl('consentError');
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var valid = true;
+
+          /* Validate all required fields */
+          var required = [fields[0], fields[1], fields[3], fields[4]]; /* name, email, dept, message */
+          required.forEach(function(f) {
+            var el = getEl(f.id);
+            var err = f.validate(el ? el.value : '');
+            if (err) { setError(f.id, f.msg, err); valid = false; }
+            else { clearError(f.id, f.msg); }
+          });
+
+          /* Validate optional phone if filled */
+          var phoneField = fields[2];
+          var phoneEl = getEl(phoneField.id);
+          if (phoneEl && phoneEl.value.trim() !== '') {
+            var phoneErr = phoneField.validate(phoneEl.value);
+            if (phoneErr) { setError(phoneField.id, phoneField.msg, phoneErr); valid = false; }
+            else { clearError(phoneField.id, phoneField.msg); }
+          }
+
+          /* Validate consent */
+          if (!consentEl || !consentEl.checked) {
+            if (consentErr) consentErr.classList.add('visible');
+            valid = false;
+          } else {
+            if (consentErr) consentErr.classList.remove('visible');
+          }
+
+          if (!valid) return;
+
+          /* Simulate async submission */
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending\u2026';
+
+          setTimeout(function() {
+            form.style.display = 'none';
+            if (successEl) successEl.classList.add('visible');
+          }, 1200);
+        });
+      }
+
+      /* ── Consent live clear ── */
+      if (consentEl) {
+        consentEl.addEventListener('change', function() {
+          if (consentEl.checked && consentErr) {
+            consentErr.classList.remove('visible');
+          }
+        });
+      }
+
+      /* ── FAQ Accordion ── */
+      var faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(function(item) {
+        var btn = item.querySelector('.faq-question');
+        var answer = item.querySelector('.faq-answer');
+        if (!btn || !answer) return;
+
+        btn.addEventListener('click', function() {
+          var isOpen = item.classList.contains('open');
+
+          /* Close all others */
+          faqItems.forEach(function(other) {
+            other.classList.remove('open');
+            var otherBtn = other.querySelector('.faq-question');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          });
+
+          /* Toggle clicked */
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>

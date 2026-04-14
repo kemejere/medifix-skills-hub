@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training Programs – Medifix Skills Hub Limited</title>
+  <meta name="description" content="Explore Medifix Skills Hub's certified training programs: BLS, ACLS, PALS, PHARSO, Infection Prevention, and custom healthcare training in Abuja, Nigeria." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .filter-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:40px; }
+    .filter-btn { padding:9px 22px; border-radius:50px; border:1.5px solid var(--border); background:white; color:var(--text); font-weight:600; font-size:0.88rem; cursor:pointer; transition:var(--transition); }
+    .filter-btn:hover, .filter-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+    .programs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px; }
+    .enroll-note { background:var(--primary-light); border:1px solid rgba(10,110,180,0.2); border-radius:10px; padding:20px 24px; margin-top:40px; display:flex; align-items:center; gap:14px; }
+    .enroll-note span { font-size:1.5rem; }
+    .enroll-note p { margin:0; font-size:0.94rem; color:var(--text); }
+    .enroll-note strong { color:var(--primary); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">M</div>
+        Medifix Skills Hub
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="training.html" class="active">Training</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-cta"><a href="contact.html" class="btn btn-primary">Enroll Now</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span><span>Training Programs</span>
+      </div>
+      <h1>Training Programs</h1>
+      <p>Internationally benchmarked, hands-on clinical training programs designed to equip healthcare professionals with skills that save lives.</p>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Certified Courses</span>
+        <h2>Choose Your Program</h2>
+        <p>All programs are delivered by certified instructors, include hands-on simulation practice, and award internationally recognised completion certificates.</p>
+      </div>
+
+      <!-- FILTER -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Programs</button>
+        <button class="filter-btn" data-filter="critical">Critical Care</button>
+        <button class="filter-btn" data-filter="advanced">Advanced</button>
+        <button class="filter-btn" data-filter="essential">Essential Skills</button>
+        <button class="filter-btn" data-filter="custom">Custom</button>
+      </div>
+
+      <div class="programs-grid">
+
+        <!-- BLS -->
+        <div class="program-card" data-category="critical">
+          <div class="program-header">
+            <span class="program-badge badge-critical">Critical Care</span>
+            <h3>Basic Life Support (BLS)</h3>
+            <p>Foundational CPR, AED, and choking relief for all healthcare professionals and first responders.</p>
+          </div>
+          <div class="program-body">
+            <div class="program-meta">
+              <div class="program-meta-item">&#128337; 1 Day (8 hrs)</div>
+              <div class="program-meta-item">&#127891; AHA/ERC Aligned</div>
+              <div class="program-meta-item">&#128101; All Levels</div>
+            </div>
+            <ul class="features-list" style="font-size:0.9rem;">
+              <li>Adult, child &amp; infant CPR techniques</li>
+              <li>AED operation and defibrillation</li>
+              <li>Relief of foreign body airway obstruction</li>
+              <li>Team resuscitation dynamics</li>
+            </ul>
+          </div>
+          <div class="program-footer">
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Enroll Now</a>
+          </div>
+        </div>
+
+        <!-- ACLS -->
+        <div class="program-card" data-category="advanced">
+          <div class="program-header">
+            <span class="program-badge badge-advanced">Advanced</span>
+            <h3>Advanced Cardiac Life Support (ACLS)</h3>
+            <p>Advanced resuscitation for cardiac arrest, stroke, acute coronary syndromes, and post-resuscitation care.</p>
+          </div>
+          <div class="program-body">
+            <div class="program-meta">
+              <div class="program-meta-item">&#128337; 2 Days (16 hrs)</div>
+              <div class="program-meta-item">&#127891; AHA/ERC Aligned</div>
+              <div class="program-meta-item">&#128101; Nurses &amp; Doctors</div>
+            </div>
+            <ul class="features-list" style="font-size:0.9rem;">
+              <li>Recognition &amp; management of cardiac arrest</li>
+              <li>Advanced airway management techniques</li>
+              <li>Rhythm recognition and treatment algorithms</li>
+              <li>High-performance team leadership in resus</li>
+            </ul>
+          </div>
+          <div class="program-footer">
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Enroll Now</a>
+          </div>
+        </div>
+
+        <!-- PALS -->
+        <div class="program-card" data-category="advanced">
+          <div class="program-header">
+            <span class="program-badge badge-advanced">Advanced</span>
+            <h3>Paediatric Advanced Life Support (PALS)</h3>
+            <p>Systematic approach to assessment and management of critically ill or injured children.</p>
+          </div>
+          <div class="program-body">
+            <div class="program-meta">
+              <div class="program-meta-item">&#128337; 2 Days (16 hrs)</div>
+              <div class="program-meta-item">&#127891; AHA/ERC Aligned</div>
+              <div class="program-meta-item">&#128101; Paediatric Teams</div>
+            </div>
+            <ul class="features-list" style="font-size:0.9rem;">
+              <li>Paediatric assessment triangle &amp; ABCDE approach</li>
+              <li>Recognition of respiratory &amp; shock states</li>
+              <li>Paediatric CPR, airway &amp; vascular access</li>
+              <li>Simulation-based team resuscitation scenarios</li>
+            </ul>
+          </div>
+          <div class="program-footer">
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Enroll Now</a>
+          </div>
+        </div>
+
+        <!-- PHARSO -->
+        <div class="program-card" data-category="critical">
+          <div class="program-header">
+            <span class="program-badge badge-critical">Critical Care</span>
+            <h3>PHARSO – Pre-Hospital &amp; Rescue Operations</h3>
+            <p>Comprehensive pre-hospital emergency care and rescue operations training for first responders and emergency personnel.</p>
+          </div>
+          <div class="program-body">
+            <div class="program-meta">
+              <div class="program-meta-item">&#128337; 3 Days</div>
+              <div class="program-meta-item">&#127891; Medifix Certified</div>
+              <div class="program-meta-item">&#128101; First Responders</div>
+            </div>
+            <ul class="features-list" style="font-size:0.9rem;">
+              <li>Scene assessment &amp; hazard management</li>
+              <li>Patient extrication and immobilisation</li>
+              <li>Pre-hospital trauma care &amp; triage</li>
+              <li>Mass casualty incident management</li>
+            </ul>
+          </div>
+          <div class="program-footer">
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Enroll Now</a>
+          </div>
+        </div>
+
+        <!-- IPC -->
+        <div class="program-card" data-category="essential">
+          <div class="program-header">
+            <span class="program-badge badge-essential">Essential Skills</span>
+            <h3>Infection Prevention &amp; Control (IPC)</h3>
+            <p>Evidence-based IPC training for healthcare workers to reduce hospital-acquired infections and ensure regulatory compliance.</p>
+          </div>
+          <div class="program-body">
+            <div class="program-meta">
+              <div class="program-meta-item">&#128337; 1–2 Days</div>
+              <div class="program-meta-item">&#127891; WHO Aligned</div>
+              <div class="program-meta-item">&#128101; All Staff</div>
+            </div>
+            <ul class="features-list" style="font-size:0.9rem;">
+              <li>Standard and transmission-based precautions</li>
+              <li>Hand hygiene &amp; PPE use</li>
+              <li>Healthcare waste management</li>
+              <li>Outbreak investigation and response</li>
+            </ul>
+          </div>
+          <div class="program-footer">
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Enroll Now</a>
+          </div>
+        </div>
+
+        <!-- NEONATAL -->
+        <div class="program-card" data-category="essential">
+          <div class="program-header">
+            <span class="program-badge badge-essential">Essential Skills</span>
+            <h3>Neonatal Resuscitation Program (NRP)</h3>
+            <p>Evidence-based neonatal resuscitation training for midwives, nurses, and doctors managing deliveries and newborn care.</p>
+          </div>
+          <div class="program-body">
+            <div class="program-meta">
+              <div class="program-meta-item">&#128337; 1 Day</div>
+              <div class="program-meta-item">&#127891; AAP/WHO Aligned</div>
+              <div class="program-meta-item">&#128101; Obstetric Teams</div>
+            </div>
+            <ul class="features-list" style="font-size:0.9rem;">
+              <li>Initial steps of newborn stabilisation</li>
+              <li>Positive pressure ventilation (PPV)</li>
+              <li>Chest compressions &amp; medication in neonates</li>
+              <li>Post-resuscitation care &amp; documentation</li>
+            </ul>
+          </div>
+          <div class="program-footer">
+            <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Enroll Now</a>
+          </div>
+        </div>
+
+        <!-- CUSTOM -->
+        <div class="program-card" data-category="custom">
+          <div class="program-header">
+            <span class="program-badge badge-custom">Custom</span>
+            <h3>Custom Institutional Training Programs</h3>
+            <p>Bespoke training programs designed and delivered to meet the specific clinical and operational needs of your organisation.</p>
+          </div>
+          <div class="program-body">
+            <div class="program-meta">
+              <div class="program-meta-item">&#128337; Flexible Duration</div>
+              <div class="program-meta-item">&#127891; Custom Cert</div>
+              <div class="program-meta-item">&#128101; Any Team Size</div>
+            </div>
+            <ul class="features-list" style="font-size:0.9rem;">
+              <li>Needs assessment and curriculum design</li>
+              <li>On-site delivery at your facility</li>
+              <li>Aligned to your protocols and SOPs</li>
+              <li>Post-training competency evaluation</li>
+            </ul>
+          </div>
+          <div class="program-footer">
+            <a href="contact.html" class="btn btn-secondary" style="width:100%;justify-content:center;">Request Custom Program</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="enroll-note">
+        <span>&#128203;</span>
+        <p><strong>Group &amp; Institutional Bookings:</strong> We offer discounted rates and on-site delivery for groups of 10 or more. <a href="contact.html">Contact us</a> to discuss a tailored training plan for your organisation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section-pad bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Enrollment Process</span>
+        <h2>How to Enroll</h2>
+        <p>Getting started with Medifix training is simple. Follow these four steps to secure your place.</p>
+      </div>
+      <div class="cards-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+        <div class="card text-center">
+          <div class="card-icon" style="margin:0 auto 20px;background:#e8f3fb;color:var(--primary);font-size:1.4rem;font-weight:800;">1</div>
+          <h3>Choose Your Program</h3>
+          <p>Browse our catalog and select the course that matches your clinical role and learning goals.</p>
+        </div>
+        <div class="card text-center">
+          <div class="card-icon" style="margin:0 auto 20px;background:#e6f7f5;color:var(--secondary);font-size:1.4rem;font-weight:800;">2</div>
+          <h3>Contact Our Team</h3>
+          <p>Reach out via our contact form, email, or phone to confirm availability and upcoming dates.</p>
+        </div>
+        <div class="card text-center">
+          <div class="card-icon" style="margin:0 auto 20px;background:#fef6e8;color:var(--accent);font-size:1.4rem;font-weight:800;">3</div>
+          <h3>Complete Registration</h3>
+          <p>Submit your enrollment details and any required pre-course materials or prerequisites.</p>
+        </div>
+        <div class="card text-center">
+          <div class="card-icon" style="margin:0 auto 20px;background:#fdeeed;color:#d63031;font-size:1.4rem;font-weight:800;">4</div>
+          <h3>Attend &amp; Certify</h3>
+          <p>Complete the course, pass assessments, and receive your internationally recognised certificate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Advance Your Clinical Skills?</h2>
+      <p>Contact us today to enroll in an upcoming program or schedule a custom training session for your team.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-outline btn-lg">Enroll Now</a>
+        <a href="services.html" class="btn btn-secondary btn-lg">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo"><div class="footer-logo-icon">M</div>Medifix Skills Hub</a>
+          <p>Empowering healthcare excellence through world-class training, consultancy, and innovation across Nigeria and West Africa.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">in</a><a href="#" class="social-link">fb</a>
+            <a href="#" class="social-link">tw</a><a href="#" class="social-link">yt</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li><li><a href="training.html">Training</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul class="footer-links">
+            <li><a href="training.html">BLS Certification</a></li><li><a href="training.html">ACLS Certification</a></li>
+            <li><a href="training.html">PALS Certification</a></li><li><a href="training.html">PHARSO</a></li>
+            <li><a href="training.html">IPC Training</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item"><span>&#128205;</span><span>Abuja, FCT, Nigeria</span></div>
+          <div class="footer-contact-item"><span>&#128222;</span><span>+234-800-MEDIFIX</span></div>
+          <div class="footer-contact-item"><span>&#9993;</span><span>info@medifixskills.com</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Medifix Skills Hub Limited. All rights reserved.</span>
+        <span>Registered in Nigeria &bull; CAC Certified</span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" style="position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:50%;background:var(--primary);color:white;border:none;font-size:1.2rem;cursor:pointer;opacity:0;transition:opacity 0.3s;box-shadow:var(--shadow);pointer-events:none;" aria-label="Back to top">&#8679;</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
